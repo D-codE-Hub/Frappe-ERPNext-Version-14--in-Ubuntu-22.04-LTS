@@ -41,6 +41,45 @@ A complete Guide to Install Frappe/ERPNext version 14  in Ubuntu 22.04 LTS
     sudo mysql_secure_installation
     
     
+      In order to log into MariaDB to secure it, we'll need the current
+      password for the root user. If you've just installed MariaDB, and
+      haven't set the root password yet, you should just press enter here.
+
+      Enter current password for root (enter for none): # PRESS ENTER
+      OK, successfully used password, moving on...
+      
+      
+      Switch to unix_socket authentication [Y/n] Y
+      Enabled successfully!
+      Reloading privilege tables..
+       ... Success!
+ 
+      Change the root password? [Y/n] Y
+      New password: 
+      Re-enter new password: 
+      Password updated successfully!
+      Reloading privilege tables..
+       ... Success!
+
+      Remove anonymous users? [Y/n] Y
+       ... Success!
+ 
+       Disallow root login remotely? [Y/n] Y
+       ... Success!
+
+       Remove test database and access to it? [Y/n] Y
+       - Dropping test database...
+       ... Success!
+       - Removing privileges on test database...
+       ... Success!
+ 
+       Reload privilege tables now? [Y/n] Y
+       ... Success!
+
+ 
+    
+    
+    
 ### STEP 6  MySQL database development files
 
     sudo apt-get install libmysqlclient-dev
@@ -103,7 +142,7 @@ Now press (Ctrl-X) to exit
 
 ### STEP 12 install frappe-bench
 
-    sudo -H pip3 install frappe-bench
+    sudo -H pip3 install frappe-bench==5.10.1
     
     bench --version
     
@@ -137,5 +176,15 @@ Now press (Ctrl-X) to exit
     
     sudo bench setup production dcode-frappe
     bench restart
+
+#### If bench restart is not wordked run the following command again with all Questions Yes
+    
+    sudo bench setup production dcode-frappe
+    
+#### if js and css file is not loading on login window run the following command
+
+    sudo chmod o+x /home/dcode-frappe
+    
+    
 
     
