@@ -177,7 +177,7 @@ Now press (Ctrl-X) to exit
     sudo bench setup production dcode-frappe
     bench restart
 
-#### If bench restart is not wordked run the following command again with all Questions Yes
+#### If bench restart is not worked run the following command again with all Questions Yes
     
     sudo bench setup production dcode-frappe
     
