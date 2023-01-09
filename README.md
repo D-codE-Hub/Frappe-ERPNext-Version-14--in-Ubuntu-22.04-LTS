@@ -127,7 +127,7 @@ Now press (Ctrl-X) to exit
     sudo apt install curl 
     curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
     source ~/.profile
-    nvm install 14
+    nvm install 16
 
 ### STEP 10  install Yarn
 
