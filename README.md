@@ -15,26 +15,34 @@ A complete Guide to Install Frappe/ERPNext version 14  in Ubuntu 22.04 LTS
       cron                                          (bench's scheduled jobs: automated certificate renewal, scheduled backups)
       NGINX                                         (proxying multitenant sites in production)
 
+### STEP 1 Update and Upgrade Packages
+    sudo apt-get update -y
+    sudo apt-get upgrade -y
 
-
-### STEP 1 Install git
+### STEP 2 Create a new user – (bench user)
+    sudo adduser [frappe-user]
+    usermod -aG sudo [frappe-user]
+    su [frappe-user] 
+    cd /home/[frappe-user]
+    
+### STEP 3 Install git
     sudo apt-get install git
 
-### STEP 2 install python-dev
+### STEP 4 install python-dev
 
     sudo apt-get install python3-dev
 
-### STEP 3 Install setuptools and pip (Python's Package Manager).
+### STEP 5 Install setuptools and pip (Python's Package Manager).
 
     sudo apt-get install python3-setuptools python3-pip
 
-### STEP 4 Install virtualenv
+### STEP 6 Install virtualenv
     
     sudo apt-get install virtualenv
     sudo apt install python3.10-venv
     
 
-### STEP 5 Install MariaDB
+### STEP 7 Install MariaDB
 
     sudo apt-get install software-properties-common
     sudo apt install mariadb-server
@@ -80,11 +88,11 @@ A complete Guide to Install Frappe/ERPNext version 14  in Ubuntu 22.04 LTS
     
     
     
-### STEP 6  MySQL database development files
+### STEP 8  MySQL database development files
 
     sudo apt-get install libmysqlclient-dev
 
-### STEP 7 Edit the mariadb configuration ( unicode character encoding )
+### STEP 9 Edit the mariadb configuration ( unicode character encoding )
 
     sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
 
@@ -118,48 +126,48 @@ Now press (Ctrl-X) to exit
 
     sudo service mysql restart
 
-### STEP 8 install Redis
+### STEP 10 install Redis
     
     sudo apt-get install redis-server
 
-### STEP 9 install Node.js 14.X package
+### STEP 11 install Node.js 14.X package
 
     sudo apt install curl 
     curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
     source ~/.profile
-    nvm install 14
+    nvm install 16.15.0
 
-### STEP 10  install Yarn
+### STEP 12  install Yarn
 
     sudo apt-get install npm
 
     sudo npm install -g yarn
 
-### STEP 11 install wkhtmltopdf
+### STEP 13 install wkhtmltopdf
 
     sudo apt-get install xvfb libfontconfig wkhtmltopdf
     
 
-### STEP 12 install frappe-bench
+### STEP 14 install frappe-bench
 
-    sudo -H pip3 install frappe-bench==5.10.1
+    sudo pip3 install frappe-bench
     
     bench --version
     
-### STEP 13 initilise the frappe bench & install frappe latest version 
+### STEP 15 initilise the frappe bench & install frappe latest version 
 
     bench init frappe-bench --frappe-branch version-14
     
     cd frappe-bench/
     bench start
     
-### STEP 14 create a site in frappe bench 
+### STEP 16 create a site in frappe bench 
     
     bench new-site dcode.com
     
     bench use dcode.com
 
-### STEP 15 install ERPNext latest version in bench & site
+### STEP 17 install ERPNext latest version in bench & site
 
     
     bench get-app payments
@@ -172,7 +180,7 @@ Now press (Ctrl-X) to exit
     
     bench start
     
-### Step 16 setup production
+### Step 18 setup production
     
     sudo bench setup production dcode-frappe
     bench restart
