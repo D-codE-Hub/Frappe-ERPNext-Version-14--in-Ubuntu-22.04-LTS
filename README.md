@@ -186,9 +186,21 @@ Now press (Ctrl-X) to exit
     sudo chmod o+x /home/dcode-frappe
     
 #### STEP 17 Create a new user
+    
     sudo adduser dcode-frappe
     sudo usermod -aG sudo dcode-frappe
     su - dcode-frappe
     
+    
+    
+#### STEP 16 SSL certificate fot https
+    
+    sudo apt install certbot python3-certbot-nginx
+    certbot -d {domain_name} --register-unsafely-without-email
+    
+   for auto renew the certificate
+   
+    sudo certbot renew --dry-run
+
 
     
