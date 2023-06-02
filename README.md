@@ -91,28 +91,28 @@ A complete Guide to Install Frappe/ERPNext version 14  in Ubuntu 22.04 LTS
 add this to the 50-server.cnf file
 
     
-     [server]
-     user = mysql
-     pid-file = /run/mysqld/mysqld.pid
-     socket = /run/mysqld/mysqld.sock
-     basedir = /usr
-     datadir = /var/lib/mysql
-     tmpdir = /tmp
-     lc-messages-dir = /usr/share/mysql
-     bind-address = 127.0.0.1
-     query_cache_size = 16M
-     log_error = /var/log/mysql/error.log
+    [server]
+    user = mysql
+    pid-file = /run/mysqld/mysqld.pid
+    socket = /run/mysqld/mysqld.sock
+    basedir = /usr
+    datadir = /var/lib/mysql
+    tmpdir = /tmp
+    lc-messages-dir = /usr/share/mysql
+    bind-address = 127.0.0.1
+    query_cache_size = 16M
+    log_error = /var/log/mysql/error.log
     
-     [mysqld]
-     innodb-file-format=barracuda
-     innodb-file-per-table=1
-     innodb-large-prefix=1
-     character-set-client-handshake = FALSE
-     character-set-server = utf8mb4
-     collation-server = utf8mb4_unicode_ci      
+    [mysqld]
+    innodb-file-format=barracuda
+    innodb-file-per-table=1
+    innodb-large-prefix=1
+    character-set-client-handshake = FALSE
+    character-set-server = utf8mb4
+    collation-server = utf8mb4_unicode_ci      
      
-     [mysql]
-     default-character-set = utf8mb4
+    [mysql]
+    default-character-set = utf8mb4
 
 Now press (Ctrl-X) to exit
 
@@ -127,7 +127,7 @@ Now press (Ctrl-X) to exit
     sudo apt install curl 
     curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
     source ~/.profile
-    nvm install 14
+    nvm install 16
 
 ### STEP 10  install Yarn
 
@@ -185,6 +185,10 @@ Now press (Ctrl-X) to exit
 
     sudo chmod o+x /home/dcode-frappe
     
+#### STEP 17 Create a new user
+    sudo adduser dcode-frappe
+    sudo usermod -aG sudo dcode-frappe
+    su - dcode-frappe
     
 
     
